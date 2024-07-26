@@ -6,6 +6,6 @@ import java.sql.SQLException;
 
 public interface SaveAnimal {
 
-    void saveAnimal(Animal animal) throws SQLException, ClassNotFoundException;
+    void saveAnimalToDb(Animal animal) throws SQLException, ClassNotFoundException;
 
 }

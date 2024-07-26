@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class AddNewAnimal {
 
-    private final IdFactory id = new IdFactory();
+    private final IdFactory idFactory = new IdFactory();
 
     public Animal add() {
         Scanner scanner = new Scanner(System.in);
@@ -48,21 +48,21 @@ public class AddNewAnimal {
         switch (command) {
             case (1):
                 try {
-                    animal = new Dog(id.createId(), name, commandsAnimal, dateBirth, kindId);
+                    animal = new Dog(idFactory.createId(), name, commandsAnimal, dateBirth, kindId);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
                 break;
             case (2):
                 try {
-                    animal = new Cat(id.createId(), name, commandsAnimal, dateBirth, kindId);
+                    animal = new Cat(idFactory.createId(), name, commandsAnimal, dateBirth, kindId);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
                 break;
             case (3):
                 try {
-                    animal = new Hamster(id.createId(), name, commandsAnimal, dateBirth, kindId);
+                    animal = new Hamster(idFactory.createId(), name, commandsAnimal, dateBirth, kindId);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

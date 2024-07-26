@@ -53,7 +53,7 @@ public class Cat extends  HomeAnimals{
 
     @Override
     public String toString() {
-        return "Кошка{" +
+        return "Кошка {" +
                 "id=" + id +
                 ", название='" + name + '\'' +
                 ", команды=" + commands +

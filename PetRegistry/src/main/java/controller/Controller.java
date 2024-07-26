@@ -1,9 +1,6 @@
 package controller;
 
-import repository.DeleteAnimal;
-import repository.FindAllAnimals;
-import repository.FindAnimalByName;
-import repository.SaveAnimalToDb;
+import repository.*;
 import services.AddNewAnimal;
 import services.AddNewCommand;
 import services.GetAllAnimalCommands;
@@ -13,13 +10,14 @@ import java.util.Scanner;
 
 public class Controller {
 
-    private AddNewAnimal addNewAnimal;
-    private SaveAnimalToDb saveAnimalToDb;
-    private FindAllAnimals findAllAnimals;
-    private FindAnimalByName findAnimalByName;
-    private GetAllAnimalCommands getAllAnimalCommands;
-    private AddNewCommand addNewCommand;
-    private DeleteAnimal deleteAnimal;
+    private final AddNewAnimal addNewAnimal = new AddNewAnimal();
+    private final SaveNewAnimal saveNewAnimal = new SaveNewAnimal();
+    private final SaveEditAnimal saveEditAnimal = new SaveEditAnimal();
+    private final FindAllAnimals findAllAnimals = new FindAllAnimals();
+    private final FindAnimalByName findAnimalByName = new FindAnimalByName();
+    private final GetAllAnimalCommands getAllAnimalCommands = new GetAllAnimalCommands();
+    private final AddNewCommand addNewCommand = new AddNewCommand();
+    private final DeleteAnimal deleteAnimal = new DeleteAnimal();
 
 
     public void startApplication() {
@@ -30,7 +28,7 @@ public class Controller {
         System.out.println("""
                     Введите команду из списка:
                 1 - Добавить животное.
-                2 - Получить список всех животных в реестр.
+                2 - Получить список всех животных в реестре.
                 3 - Получить список всех команд животного.
                 4 - Добавить новую команду животному.
                 5 - Удалить животное из реестра.
@@ -56,7 +54,7 @@ public class Controller {
         switch (command) {
             case (1)://Добавить животное
                 try {
-                    saveAnimalToDb.saveAnimal(addNewAnimal.add());
+                    saveNewAnimal.saveAnimalToDb(addNewAnimal.add());
                     System.out.println("Животное добавлено.");
                 } catch (SQLException | ClassNotFoundException e) {
                     throw new RuntimeException(e);
@@ -120,7 +118,6 @@ public class Controller {
                         }
                         break;
                 }
-                System.out.println("Команды добавлены.");
                 break;
             case (4)://Добавить новую команду животному
                 System.out.println("""
@@ -150,30 +147,32 @@ public class Controller {
                 switch (command2) {
                     case (1):
                         try {
-                            addNewCommand.addCommand(findAnimalByName
-                                    .findByName("Dog", name));
+                            saveEditAnimal.saveAnimalToDb(addNewCommand.addCommand(findAnimalByName
+                                    .findByName("Dog", name)));
                         } catch (SQLException | ClassNotFoundException e) {
                             throw new RuntimeException(e);
                         }
                         break;
                     case (2):
                         try {
-                            addNewCommand.addCommand(findAnimalByName
-                                    .findByName("Cat", name));
+                            saveEditAnimal.saveAnimalToDb(addNewCommand.addCommand(findAnimalByName
+                                    .findByName("Cat", name)));
                         } catch (SQLException | ClassNotFoundException e) {
                             throw new RuntimeException(e);
                         }
                         break;
                     case (3):
                         try {
-                            addNewCommand.addCommand(findAnimalByName
-                                    .findByName("Hamster", name));
+                            saveEditAnimal.saveAnimalToDb(addNewCommand.addCommand(findAnimalByName
+                                    .findByName("Hamster", name)));
                         } catch (SQLException | ClassNotFoundException e) {
                             throw new RuntimeException(e);
                         }
                         break;
                 }
+                System.out.println("Команды добавлены.");
                 break;
+
             case (5)://Удалить животное из реестра
                 System.out.println("""
                             Ведите вид животного из списка:
@@ -203,6 +202,7 @@ public class Controller {
                         try {
                             deleteAnimal.deleteAnimalByName(findAnimalByName
                                     .findByName("Dog", name));
+                            System.out.println("Животное удалено из реестра!");
                         } catch (SQLException | ClassNotFoundException e) {
                             throw new RuntimeException(e);
                         }
@@ -211,6 +211,7 @@ public class Controller {
                         try {
                             deleteAnimal.deleteAnimalByName(findAnimalByName
                                     .findByName("Cat", name));
+                            System.out.println("Животное удалено из реестра!");
                         } catch (SQLException | ClassNotFoundException e) {
                             throw new RuntimeException(e);
                         }
@@ -219,12 +220,12 @@ public class Controller {
                         try {
                             deleteAnimal.deleteAnimalByName(findAnimalByName
                                     .findByName("Hamster", name));
+                            System.out.println("Животное удалено из реестра!");
                         } catch (SQLException | ClassNotFoundException e) {
                             throw new RuntimeException(e);
                         }
                         break;
                 }
-                System.out.println("Животное удалено из реестра!");
                 break;
         }
     }

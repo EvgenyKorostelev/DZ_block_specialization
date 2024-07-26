@@ -53,7 +53,7 @@ public class Hamster extends HomeAnimals{
 
     @Override
     public String toString() {
-        return "Хомяк{" +
+        return "Хомяк {" +
                 "id=" + id +
                 ", название='" + name + '\'' +
                 ", команды=" + commands +

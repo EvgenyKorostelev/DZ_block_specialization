@@ -16,18 +16,18 @@ import java.util.List;
 
 public class FindAllAnimals {
 
-    private DatabaseHandler databaseHandler;
+    private final DatabaseHandler databaseHandler = new DatabaseHandler();
 
     public List<Animal> findAll() throws SQLException, ClassNotFoundException {
 
         PreparedStatement prSt;
         ResultSet resSet;
         Animal animal;
-
         List<Animal> allAnimals = new ArrayList<>();
-        String select = "SELECT * FROM" + Const.DOGS_TABLE;
-        String select1 = "SELECT * FROM" + Const.CATS_TABLE;
-        String select2 = "SELECT * FROM" + Const.HAMSTERS_TABLE;
+
+        String select = "SELECT * FROM " + Const.DOGS_TABLE;
+        String select1 = "SELECT * FROM " + Const.CATS_TABLE;
+        String select2 = "SELECT * FROM " + Const.HAMSTERS_TABLE;
         prSt = databaseHandler.getDbConnection().prepareStatement(select);
         resSet = prSt.executeQuery();
         while (resSet.next()){
