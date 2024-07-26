@@ -18,7 +18,7 @@ public class FindAnimalByName {
 
     public Animal findByName(String typeAnimal, String name) throws SQLException, ClassNotFoundException {
         Animal animal = null;
-        PreparedStatement prSt = null;
+        PreparedStatement prSt;
         String select;
         ResultSet resSet;
         switch (typeAnimal) {

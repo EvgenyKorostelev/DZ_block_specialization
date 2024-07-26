@@ -11,11 +11,12 @@ public class AddNewAnimal {
 
     private final IdFactory idFactory = new IdFactory();
 
-    public Animal add() {
+    public Animal addAnimal() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Выберите вид животного");
+        System.out.println("Добавление нового животного.");
+        System.out.println("выберите вид животного");
         System.out.println("""
-                    Введите цифру из списка:
+                    введите цифру из списка:
                 1 - Собака.
                 2 - Кошка.
                 3 - Хомяк.
@@ -26,8 +27,9 @@ public class AddNewAnimal {
             try {
                 command = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
+                System.out.println("Добавление нового животного.");
                 System.out.println("""
-                            Нет такого вида, повторите ввод:
+                            вет такого вида, повторите ввод:
                         1 - Собака.
                         2 - Кошка.
                         3 - Хомяк.
@@ -36,13 +38,16 @@ public class AddNewAnimal {
             }
         }
         Integer kindId = command;
-        System.out.println("Введите имя животного: ");
+        System.out.println("Добавление нового животного.");
+        System.out.println("введите имя животного: ");
         String name = scanner.nextLine();
-        System.out.println("Введите команды, которым обучено животное(через запятую',' без пробелов): ");
+        System.out.println("Добавление нового животного.");
+        System.out.println("введите команды, которым обучено животное(через запятую',' без пробелов): ");
         List<String> commandsAnimal = Arrays.asList(scanner
                 .nextLine()
                 .split(","));
-        System.out.println("Введите дату рождения животного в формате(гггг-мм-дд): ");
+        System.out.println("Добавление нового животного.");
+        System.out.println("введите дату рождения животного в формате(гггг-мм-дд): ");
         String dateBirth = scanner.nextLine();
         Animal animal = null;
         switch (command) {

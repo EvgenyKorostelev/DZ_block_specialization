@@ -34,7 +34,7 @@ VALUES ("horses", 2), ("camels", 2), ("donkeys", 2);
 -- ===============================================================
 DROP TABLE IF EXISTS dogs;
 CREATE TABLE dogs(
-id INT PRIMARY KEY AUTO_INCREMENT,
+id INT PRIMARY KEY,
 name VARCHAR(10),
 commands VARCHAR(100),
 date_birth DATE,
@@ -42,14 +42,14 @@ kind_id INT,
 FOREIGN KEY (kind_id) REFERENCES home_animals (id)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
-INSERT INTO dogs (name, commands, date_birth, kind_id)
-VALUES ("Rem", "sit, lie, voice", "1996-05-04", 1),
-	   ("Zeta", "sit, lie, take", "1994-08-12", 1),
-	   ("Pit", "sit, lie, give", "1992-01-28", 1);
+INSERT INTO dogs (id, name, commands, date_birth, kind_id)
+VALUES (11111111, "Rem", "sit, lie, voice", "1996-05-04", 1),
+	   (11111112, "Zeta", "sit, lie, take", "1994-08-12", 1),
+	   (11111113, "Pit", "sit, lie, give", "1992-01-28", 1);
 -- ===============================================================	   
 DROP TABLE IF EXISTS cats;
 CREATE TABLE cats(
-id INT PRIMARY KEY AUTO_INCREMENT,
+id INT PRIMARY KEY,
 name VARCHAR(10),
 commands VARCHAR(100),
 date_birth DATE,
@@ -57,14 +57,14 @@ kind_id INT,
 FOREIGN KEY (kind_id) REFERENCES home_animals (id)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
-INSERT INTO cats (name, commands, date_birth, kind_id)
-VALUES ("Murka", "kis-kis-kis, eat", "2001-07-21", 2),
-	   ("Lapka", "kis-kis-kis, eat", "2007-03-08", 2),
-	   ("Gav", "kis-kis-kis, eat", "2014-11-17", 2);
+INSERT INTO cats (id, name, commands, date_birth, kind_id)
+VALUES (22222221, "Murka", "kis-kis-kis, eat", "2001-07-21", 2),
+	   (22222222, "Lapka", "kis-kis-kis, eat", "2007-03-08", 2),
+	   (22222223, "Gav", "kis-kis-kis, eat", "2014-11-17", 2);
 -- ===============================================================	   
 DROP TABLE IF EXISTS hamsters;
 CREATE TABLE hamsters(
-id INT PRIMARY KEY AUTO_INCREMENT,
+id INT PRIMARY KEY,
 name VARCHAR(10),
 commands VARCHAR(100),
 date_birth DATE,
@@ -72,10 +72,10 @@ kind_id INT,
 FOREIGN KEY (kind_id) REFERENCES home_animals (id)
 ON DELETE CASCADE ON UPDATE CASCADE
 );
-INSERT INTO hamsters (name, commands, date_birth, kind_id)
-VALUES ("Homa", "eat", "2022-11-02", 3),
-	   ("Depp", "eat", "2022-12-09", 3),
-	   ("Sonya", "eat", "2022-7-22", 3);
+INSERT INTO hamsters (id, name, commands, date_birth, kind_id)
+VALUES (33333331, "Homa", "eat", "2022-11-02", 3),
+	   (33333332, "Depp", "eat", "2022-12-09", 3),
+	   (33333333, "Sonya", "eat", "2022-7-22", 3);
 -- ===============================================================
 DROP TABLE IF EXISTS horses;
 CREATE TABLE horses(

@@ -26,7 +26,7 @@ public class Controller {
         String name;
         System.out.println("Реестр домашних животных.");
         System.out.println("""
-                    Введите команду из списка:
+                    введите команду из списка:
                 1 - Добавить животное.
                 2 - Получить список всех животных в реестре.
                 3 - Получить список всех команд животного.
@@ -54,7 +54,7 @@ public class Controller {
         switch (command) {
             case (1)://Добавить животное
                 try {
-                    saveNewAnimal.saveAnimalToDb(addNewAnimal.add());
+                    saveNewAnimal.saveAnimalToDb(addNewAnimal.addAnimal());
                     System.out.println("Животное добавлено.");
                 } catch (SQLException | ClassNotFoundException e) {
                     throw new RuntimeException(e);
@@ -68,8 +68,9 @@ public class Controller {
                 }
                 break;
             case (3)://Получить список всех команд животного
+                System.out.println("Получение списка команд животного.");
                 System.out.println("""
-                            Ведите вид животного из списка:
+                            ведите вид животного из списка:
                         1 - Собака.
                         2 - Кошка.
                         3 - Хомяк.
@@ -81,8 +82,9 @@ public class Controller {
                     try {
                         command1 = Integer.parseInt(scanner.nextLine());
                     } catch (NumberFormatException e) {
+                        System.out.println("Получение списка команд животного.");
                         System.out.println("""
-                                    Нет такого вида, повторите ввод:
+                                    нет такого вида, повторите ввод:
                                 1 - Собака.
                                 2 - Кошка.
                                 3 - Хомяк.
@@ -90,7 +92,8 @@ public class Controller {
                                 """);
                     }
                 }
-                System.out.println("Введите имя животного: ");
+                System.out.println("Получение списка команд животного.");
+                System.out.println("введите имя животного: ");
                 name = scanner.nextLine();
                 switch (command1) {
                     case (1):
@@ -120,8 +123,9 @@ public class Controller {
                 }
                 break;
             case (4)://Добавить новую команду животному
+                System.out.println("Добавление команды животному.");
                 System.out.println("""
-                            Ведите вид животного из списка:
+                            ведите вид животного из списка:
                         1 - Собака.
                         2 - Кошка.
                         3 - Хомяк.
@@ -133,8 +137,9 @@ public class Controller {
                     try {
                         command2 = Integer.parseInt(scanner.nextLine());
                     } catch (NumberFormatException e) {
+                        System.out.println("Добавление команды животному.");
                         System.out.println("""
-                                    Нет такого вида, повторите ввод:
+                                    нет такого вида, повторите ввод:
                                 1 - Собака.
                                 2 - Кошка.
                                 3 - Хомяк.
@@ -142,7 +147,8 @@ public class Controller {
                                 """);
                     }
                 }
-                System.out.println("Введите имя животного: ");
+                System.out.println("Добавление команды животному.");
+                System.out.println("введите имя животного: ");
                 name = scanner.nextLine();
                 switch (command2) {
                     case (1):
@@ -174,8 +180,9 @@ public class Controller {
                 break;
 
             case (5)://Удалить животное из реестра
+                System.out.println("УДАЛЕНИЕ животного из реестра.");
                 System.out.println("""
-                            Ведите вид животного из списка:
+                            ведите вид животного из списка:
                         1 - Собака.
                         2 - Кошка.
                         3 - Хомяк.
@@ -186,8 +193,9 @@ public class Controller {
                     try {
                         command3 = Integer.parseInt(scanner.nextLine());
                     } catch (NumberFormatException e) {
+                        System.out.println("УДАЛЕНИЕ животного из реестра.");
                         System.out.println("""
-                                    Нет такого вида, повторите ввод:
+                                    нет такого вида, повторите ввод:
                                 1 - Собака.
                                 2 - Кошка.
                                 3 - Хомяк.
@@ -195,7 +203,8 @@ public class Controller {
                                 """);
                     }
                 }
-                System.out.println("Введите имя животного: ");
+                System.out.println("УДАЛЕНИЕ животного из реестра.");
+                System.out.println("введите имя животного: ");
                 name = scanner.nextLine();
                 switch (command3) {
                     case (1):

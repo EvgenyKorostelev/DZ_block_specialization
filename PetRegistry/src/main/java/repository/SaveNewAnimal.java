@@ -17,8 +17,9 @@ public class SaveNewAnimal implements SaveAnimal {
     @Override
     public void saveAnimalToDb(Animal animal) throws SQLException, ClassNotFoundException {
         PreparedStatement prSt = null;
+        String insert;
         if (animal instanceof Dog) {
-            String insert = "INSERT INTO " + Const.DOGS_TABLE + "(" +
+            insert = "INSERT INTO " + Const.DOGS_TABLE + "(" +
                     Const.DOG_ID + "," + Const.DOG_NAME + "," +
                     Const.DOG_COMMANDS + "," + Const.DOG_DATE_BIRTH + "," +
                     Const.DOG_KIND_ID + ")" +
@@ -31,7 +32,7 @@ public class SaveNewAnimal implements SaveAnimal {
             prSt.setString(4, ((Dog) animal).getDateBirth());
             prSt.setString(5, ((Dog) animal).getKindId().toString());
         } else if (animal instanceof Cat) {
-            String insert = "INSERT INTO " + Const.CATS_TABLE + "(" +
+            insert = "INSERT INTO " + Const.CATS_TABLE + "(" +
                     Const.CAT_ID + "," + Const.CAT_NAME + "," +
                     Const.CAT_COMMANDS + "," + Const.CAT_DATE_BIRTH + "," +
                     Const.CAT_KIND_ID + ")" +
@@ -44,7 +45,7 @@ public class SaveNewAnimal implements SaveAnimal {
             prSt.setString(4, ((Cat) animal).getDateBirth());
             prSt.setString(5, ((Cat) animal).getKindId().toString());
         } else if (animal instanceof Hamster) {
-            String insert = "INSERT INTO " + Const.HAMSTERS_TABLE + "(" +
+            insert = "INSERT INTO " + Const.HAMSTERS_TABLE + "(" +
                     Const.HAMSTER_ID + "," + Const.HAMSTER_NAME + "," +
                     Const.HAMSTER_COMMANDS + "," + Const.HAMSTER_DATE_BIRTH + "," +
                     Const.HAMSTER_KIND_ID + ")" +

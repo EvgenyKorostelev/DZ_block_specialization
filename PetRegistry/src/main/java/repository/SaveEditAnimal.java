@@ -17,8 +17,9 @@ public class SaveEditAnimal implements SaveAnimal {
     @Override
     public void saveAnimalToDb(Animal animal) throws SQLException, ClassNotFoundException {
         PreparedStatement prSt = null;
+        String update;
         if (animal instanceof Dog) {
-            String update = "UPDATE " + Const.DOGS_TABLE + " SET " +
+            update = "UPDATE " + Const.DOGS_TABLE + " SET " +
                     Const.DOG_COMMANDS + "=?" +
                     " WHERE " + Const.DOG_NAME + "=?";
             prSt = databaseHandler.getDbConnection().prepareStatement(update);
@@ -26,7 +27,7 @@ public class SaveEditAnimal implements SaveAnimal {
                     .replace(" ", ""));
             prSt.setString(2, ((Dog) animal).getName());
         } else if (animal instanceof Cat) {
-            String update = "UPDATE " + Const.CATS_TABLE + " SET " +
+            update = "UPDATE " + Const.CATS_TABLE + " SET " +
                     Const.CAT_COMMANDS + "=?" +
                     " WHERE " + Const.CAT_NAME + "=?";
             prSt = databaseHandler.getDbConnection().prepareStatement(update);
@@ -34,7 +35,7 @@ public class SaveEditAnimal implements SaveAnimal {
                     .replace(" ", ""));
             prSt.setString(2, ((Cat) animal).getName());
         } else if (animal instanceof Hamster) {
-            String update = "UPDATE " + Const.HAMSTERS_TABLE + " SET " +
+            update = "UPDATE " + Const.HAMSTERS_TABLE + " SET " +
                     Const.HAMSTER_COMMANDS + "=?" +
                     " WHERE " + Const.HAMSTER_NAME + "=?";
             prSt = databaseHandler.getDbConnection().prepareStatement(update);
