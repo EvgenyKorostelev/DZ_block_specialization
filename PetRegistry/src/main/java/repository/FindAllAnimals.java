@@ -28,7 +28,7 @@ public class FindAllAnimals {
         String select2 = "SELECT * FROM " + Const.HAMSTERS_TABLE;
         prSt = databaseHandler.getDbConnection().prepareStatement(select);
         resSet = prSt.executeQuery();
-        while (resSet.next()){
+        while (resSet.next()) {
             animal = new Dog(resSet.getInt(1),
                     resSet.getString(2),
                     Arrays.asList(resSet.getString(3).split(",")),
@@ -38,7 +38,7 @@ public class FindAllAnimals {
         }
         prSt = databaseHandler.getDbConnection().prepareStatement(select1);
         resSet = prSt.executeQuery();
-        while (resSet.next()){
+        while (resSet.next()) {
             animal = new Cat(resSet.getInt(1),
                     resSet.getString(2),
                     Arrays.asList(resSet.getString(3).split(",")),
@@ -48,7 +48,7 @@ public class FindAllAnimals {
         }
         prSt = databaseHandler.getDbConnection().prepareStatement(select2);
         resSet = prSt.executeQuery();
-        while (resSet.next()){
+        while (resSet.next()) {
             animal = new Hamster(resSet.getInt(1),
                     resSet.getString(2),
                     Arrays.asList(resSet.getString(3).split(",")),

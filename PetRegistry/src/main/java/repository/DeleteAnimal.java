@@ -33,5 +33,8 @@ public class DeleteAnimal {
             prSt.setString(1, String.valueOf(((Hamster) animal).getId()));
             prSt.executeUpdate();
         }
+        if (animal != null) {
+            System.out.println("Животное удалено из реестра.");
+        }
     }
 }

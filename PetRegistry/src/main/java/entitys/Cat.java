@@ -2,7 +2,7 @@ package entitys;
 
 import java.util.List;
 
-public class Cat extends  HomeAnimals{
+public class Cat extends HomeAnimals {
 
     private Integer id;
     private String name;

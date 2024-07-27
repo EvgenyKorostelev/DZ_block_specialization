@@ -43,8 +43,9 @@ public class SaveEditAnimal implements SaveAnimal {
                     .replace(" ", ""));
             prSt.setString(2, ((Hamster) animal).getName());
         }
-        assert prSt != null;
-        prSt.executeUpdate();
+        if (prSt != null) {
+            prSt.executeUpdate();
+        }
     }
 }
 

@@ -52,6 +52,7 @@ public class Controller {
             }
         }
         switch (command) {
+
             case (1)://Добавить животное
                 try {
                     saveNewAnimal.saveAnimalToDb(addNewAnimal.addAnimal());
@@ -60,6 +61,7 @@ public class Controller {
                     throw new RuntimeException(e);
                 }
                 break;
+
             case (2)://Получить список всех животных в реестр
                 try {
                     findAllAnimals.findAll().forEach(System.out::println);
@@ -67,6 +69,7 @@ public class Controller {
                     throw new RuntimeException(e);
                 }
                 break;
+
             case (3)://Получить список всех команд животного
                 System.out.println("Получение списка команд животного.");
                 System.out.println("""
@@ -76,7 +79,6 @@ public class Controller {
                         3 - Хомяк.
                             Ваш выбор:
                         """);
-
                 int command1 = Integer.MAX_VALUE;
                 while (command1 < 1 || command1 > 3) {
                     try {
@@ -122,6 +124,7 @@ public class Controller {
                         break;
                 }
                 break;
+
             case (4)://Добавить новую команду животному
                 System.out.println("Добавление команды животному.");
                 System.out.println("""
@@ -176,7 +179,6 @@ public class Controller {
                         }
                         break;
                 }
-                System.out.println("Команды добавлены.");
                 break;
 
             case (5)://Удалить животное из реестра
@@ -211,7 +213,6 @@ public class Controller {
                         try {
                             deleteAnimal.deleteAnimalByName(findAnimalByName
                                     .findByName("Dog", name));
-                            System.out.println("Животное удалено из реестра!");
                         } catch (SQLException | ClassNotFoundException e) {
                             throw new RuntimeException(e);
                         }
@@ -220,7 +221,6 @@ public class Controller {
                         try {
                             deleteAnimal.deleteAnimalByName(findAnimalByName
                                     .findByName("Cat", name));
-                            System.out.println("Животное удалено из реестра!");
                         } catch (SQLException | ClassNotFoundException e) {
                             throw new RuntimeException(e);
                         }
@@ -229,7 +229,6 @@ public class Controller {
                         try {
                             deleteAnimal.deleteAnimalByName(findAnimalByName
                                     .findByName("Hamster", name));
-                            System.out.println("Животное удалено из реестра!");
                         } catch (SQLException | ClassNotFoundException e) {
                             throw new RuntimeException(e);
                         }

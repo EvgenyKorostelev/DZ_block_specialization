@@ -65,6 +65,9 @@ public class FindAnimalByName {
                 }
             }
         }
+        if (animal == null) {
+            System.out.println("В реестре нет такого животного.");
+        }
         return animal;
     }
 }
